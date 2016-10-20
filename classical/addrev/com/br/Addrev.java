@@ -2,21 +2,6 @@ package addrev.com.br;
 
 import java.util.Scanner;
 
-/*
-Sample input: 
-
-3
-24 1
-4358 754
-305 794
-
-Sample output:
-
-34
-1998
-1
-*/
-
 public class Addrev {
 
 	public static void main(String[] args) {

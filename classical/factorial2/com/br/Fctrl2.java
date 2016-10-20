@@ -3,24 +3,6 @@ package factorial2.com.br;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-/*
-Calculate the factorial
- 
-Sample input:
-4
-1
-2
-5
-3
-
-Sample output:
-
-1
-2
-120
-6
-*/
-
 public class Fctrl2 {
 
 	public static void main(String[] args) {

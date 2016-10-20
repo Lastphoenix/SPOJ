@@ -2,10 +2,6 @@ package lawnmower.com.br;
 
 import java.util.*;
 
-/* Problem Lawn Mower 10080 --> http://www.spoj.com/problems/LAWNMWR/
- * 
- */
-
 public class LAWNMWR {
 
 	public static void main(String[] args) throws Exception {
