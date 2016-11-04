@@ -1,6 +1,8 @@
 package helpingigor.com.br;
 
 /*http://www.spoj.com/problems/IGOR/
+ * 
+ * Judge (8) Wrong answer... WHY?? 
 */	
 import java.io.*;
 import java.util.*;
@@ -33,11 +35,12 @@ public class IGOR {
 		}
 	}
 
-	private static void chainTransformation(int twoPow, int ki, String s, int length) {
+	private static void chainTransformation(int twoPow, int ki, String s, int length) throws FileNotFoundException {
 
 		List<char[]> list = new ArrayList<char[]>();
 		StringBuilder stb = new StringBuilder();
 		int temp = ki;
+		int mod = 0;
 		int y = 1;
 		list.add(s.toCharArray());
 		
@@ -51,6 +54,7 @@ public class IGOR {
 				
 				if (y <= twoPow - 1) {
 					
+					mod = y;
 					char[] c = Arrays.copyOf(list.get(y - 1), length + 1);
 				
 					if (c[0] == proton) {
@@ -67,13 +71,14 @@ public class IGOR {
 						list.add(ans);
 					}
 				} else {
-					temp = temp % twoPow;
+					int r = twoPow + 1;
+					mod = temp % r;
 					break;
 				}
 				y++;
 			}
 
-			stb.append(list.get(temp));
+			stb.append(list.get(mod));
 			System.out.println(stb);
 		}
 	}
