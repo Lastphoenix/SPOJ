@@ -4,7 +4,7 @@ package helpingigor.com.br;
  * 
  * Judge (8) Wrong answer... WHY?? 
 */	
-import java.io.*;
+//import java.io.*;
 import java.util.*;
 
 public class IGOR {
@@ -14,28 +14,45 @@ public class IGOR {
 
 	public static void main(String[] args) throws Exception {
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int tests = Integer.parseInt(br.readLine());
+		Scanner sc = new Scanner(System.in);
+		int tests = sc.nextInt();
+		//BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		//int tests = Integer.parseInt(br.readLine());
 
 		for (int i = 1; i <= tests; i++) {
 
-			String[] input = br.readLine().split(" ");
-			int length = Integer.parseInt(input[0]) - 1;
-			int queries = Integer.parseInt(input[1]);
-			String simulariumChain = br.readLine();
+			//String[] input = br.readLine().split(" ");
+			//int length = Integer.parseInt(input[0]) - 1;
+			//int queries = Integer.parseInt(input[1]);
+			//String simulariumChain = br.readLine();
+			int length = sc.nextInt();
+			int queries = sc.nextInt();
+			int lengthMinusOne = length - 1;
+			String simulariumChain = sc.next();
+			
 			System.out.println("Experiment #" + i + ":");
-			int x = (int) Math.pow(2, Integer.parseInt(input[0])) - 1;
+			int x = (int) Math.pow(2, length) - 1;
 
 			for (int j = 0; j < queries; j++) {
 
-				int ki = Integer.parseInt(br.readLine());
-				chainTransformation(x, ki, simulariumChain, length);
-
+				int ki = sc.nextInt();
+				//int ki = Integer.parseInt(br.readLine());
+				
+				if (length == 0) {
+					if (ki % 2 == 0) {
+						System.out.println(simulariumChain);
+					} else {
+						System.out.println(firstRule(simulariumChain.charAt(0)));
+					}
+				} else {
+					chainTransformation(x, ki, simulariumChain, lengthMinusOne);
+				}
 			}
 		}
+		sc.close();
 	}
 
-	private static void chainTransformation(int twoPow, int ki, String s, int length) throws FileNotFoundException {
+	private static void chainTransformation(int twoPow, int ki, String s, int length) {
 
 		List<char[]> list = new ArrayList<char[]>();
 		StringBuilder stb = new StringBuilder();
